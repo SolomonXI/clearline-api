@@ -8,6 +8,7 @@ import { OrganisationsModule } from './organisations/organisations.module';
 import { ClosesModule } from './closes/closes.module';
 import { TasksModule } from './tasks/tasks.module';
 import { CommentsModule } from './comments/comments.module';
+import { InsightsModule } from './insights/insights.module';
 import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
 import { RolesGuard } from './common/guards/roles.guard';
 
@@ -21,6 +22,7 @@ import { RolesGuard } from './common/guards/roles.guard';
     ClosesModule,
     TasksModule,
     CommentsModule,
+    InsightsModule,
   ],
   providers: [
     { provide: APP_GUARD, useClass: ThrottlerGuard },
