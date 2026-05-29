@@ -116,6 +116,7 @@ model Task {
   close     Close       @relation(fields: [closeId], references: [id], onDelete: Cascade)
   owner     User?       @relation(fields: [ownerId], references: [id], onDelete: SetNull)
   comments  Comment[]
+  insight   Insight?
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
 
@@ -134,4 +135,14 @@ model Comment {
 
   @@index([taskId])
   @@index([authorId])
+}
+
+model Insight {
+  id        String   @id @default(cuid())
+  taskId    String   @unique
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  summary   String
+  detail    String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
